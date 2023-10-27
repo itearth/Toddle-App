@@ -1,0 +1,92 @@
+
+
+/* Apply the custom font to the text within the registration form */
+.registrationContainer,
+.registrationTitle,
+.inputField,
+.registerButton,
+.passwordInfo {
+  font-family: cursive; /* Replace 'YourFontFamily' with the actual font family */
+}
+
+.registrationContainer {
+  background-color: #E8F5E9;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Center the text horizontally within the container */
+  
+}
+
+
+.registrationTitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #D33852;
+  
+}
+
+.inputField {
+  width: 100%;
+  max-width: 300px; /* Adjust the maximum width of the input fields */
+  padding: 10px;
+  margin: 10px auto; /* Center the input fields horizontally within the container */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+    border-color: #D33852;
+    
+  }
+}
+.registerButton {
+  background-color: #D33852;
+  color: #FFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+      background-color: darken(#D33852, 5%);
+     
+  }
+}
+
+.socialMediaContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.passwordInfo {
+  font-size: 14px;
+  color: #888;
+  margin: 5px 5px; /* Center the message vertically and horizontally */
+  text-align: center; /* Adjust the alignment as needed */
+
+}
+
+/* Add this CSS to your SCSS file */
+.loginText {
+  font-size: 14px;
+  color: #D33852; /* You can adjust the color as needed */
+  margin-top: 20px;
+}
+
+.loginText a {
+  color: #D33852; /* You can adjust the link color as needed */
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+.loginText a:hover {
+  color: #A1263B; /* You can adjust the link hover color as needed */
+  text-decoration: none;
+}
+
