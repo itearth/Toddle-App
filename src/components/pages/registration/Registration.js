@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Registration.module.scss';
 import Navbar from '../../generics/navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,9 +19,12 @@ const RegistrationForm = () => {
     const [passwordMessageVisible, setPasswordMessageVisible] = useState(false);
 
     const handleChange = (e) => {
+        console.log('handleChange called');
         const { name, value } = e.target;
+        console.log('Field:', name, 'Value:', value);
         dispatch(updateRegistrationField({ field: name, value }));
     };
+    
 
     const handlePasswordFocus = () => {
         setPasswordMessageVisible(true);
@@ -34,8 +37,25 @@ const RegistrationForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
-        // Handle registration logic here
+        
+         // Saving user registration data to local storage
+    localStorage.setItem('userRegistrationData', JSON.stringify(formData));
     };
+
+    // Function to load user registration data from local storage. It will occur during page refresh
+const loadUserRegistrationData = () => {
+    const storedData = localStorage.getItem('userRegistrationData');
+    if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        setFormData(parsedData);
+        dispatch(updateRegistrationField({ field: 'uniqueId', value: parsedData.uniqueId }));
+    }
+};
+
+// Call the function to load data when the component mounts
+useEffect(() => {
+    loadUserRegistrationData();
+}, []);
 
     return (
         <div>
