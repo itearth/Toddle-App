@@ -13,9 +13,6 @@ const registrationSlice = createSlice({
         updateRegistrationField: (state, action) => {
             const { field, value } = action.payload;
             state[field] = value;
-
-               // Generate a unique user ID
-               state.uniqueId = generateUniqueId();
         },
     },
 });
